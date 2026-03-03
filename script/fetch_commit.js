@@ -16,13 +16,15 @@ function updateCommitTracker(json){
 	msg = json["commit"]["message"];
 	const ed = new Date();
 	ed.setTime(ed.getTime() + (1000 * 60 * 10));
-	document.cookie = `gh-commit = ${dt}${msg};expires=${ed.toUTCString()};`;
+	ghcookie = `gh-commit=${dt}${msg};expires=${ed.toUTCString()};`;
+	document.cookie = encodeURI(ghcookie);
 	COMMIT_DT_OBJ.innerHTML = dt;
 	COMMIT_MSG_OBJ.innerHTML = msg;
 } 
 
 //Function to update the sidebar last commit thing but from the cached data
 function updateCommitTrackerFromCache(res){
+	res = decodeURI(res);
 	dt = res.substring(0,20);
 	msg = res.substring(20);
 	COMMIT_DT_OBJ.innerHTML = dt;
