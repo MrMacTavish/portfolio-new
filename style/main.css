@@ -180,6 +180,20 @@ padding: 20px;
 order: 2;
 }
 
+#blog-title{
+	margin-bottom:0px;
+}
+
+#blog-date{
+	margin-bottom:0px;
+}
+
+#blog-tags{
+	margin-top:0px;
+	color:#999;
+	font-style:italic;
+}
+
 /* what's this "order" stuff about??
 allow me to explain!
 if you're using both sidebars, the "order" value
